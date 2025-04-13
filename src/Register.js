@@ -12,7 +12,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/users/register', formData);
+      await axios.post('https://pingcodeping-be.onrender.com/api/users/register', formData);
       navigate('/');
     } catch (err) {
       alert(err.response.data.error);

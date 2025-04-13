@@ -12,9 +12,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/users/login', formData);
+      const res = await axios.post('https://pingcodeping-be.onrender.com/api/users/login', formData);
       localStorage.setItem('token', res.data.token);
-      navigate('/preferences');
+      navigate('https://pingcodeping-be.onrender.com/preferences');
     } catch (err) {
       alert(err.response.data.message || 'Login failed');
     }

@@ -18,7 +18,7 @@ const Preferences = () => {
     const fetchUserInfo = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('/api/users/me', {
+        const res = await axios.get('https://pingcodeping-be.onrender.com/api/users/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
         
@@ -37,14 +37,14 @@ const Preferences = () => {
       const token = localStorage.getItem('token');
 
       // Step 1: Get user info (to extract email from token)
-      const userRes = await axios.get('/api/users/me', {
+      const userRes = await axios.get('https://pingcodeping-be.onrender.com/api/users/me', {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       const email = userRes.data.email;
 
       // Step 2: Fetch sent questions using the extracted email
-      const questionsRes = await axios.get(`/api/users/sent-questions?email=${email}`, {
+      const questionsRes = await axios.get(`https://pingcodeping-be.onrender.com/api/users/sent-questions?email=${email}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -66,7 +66,7 @@ const Preferences = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        '/api/users/preferences',
+        'https://pingcodeping-be.onrender.com/api/users/preferences',
         {
           preferences: {
             topics: topics.split(',').map((t) => t.trim()),
@@ -186,7 +186,7 @@ export default Preferences;
 //       const token = localStorage.getItem('token');
 
 //       // Step 1: Get user info (to extract email from token)
-//       const userRes = await axios.get('/api/users/me', {
+//       const userRes = await axios.get('//users/me', {
 //         headers: { Authorization: `Bearer ${token}` },
 //       });
 
