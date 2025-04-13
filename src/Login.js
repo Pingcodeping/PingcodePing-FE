@@ -14,7 +14,7 @@ const Login = () => {
     try {
       const res = await axios.post('https://pingcodeping-be.onrender.com/api/users/login', formData);
       localStorage.setItem('token', res.data.token);
-      navigate('https://pingcodeping-be.onrender.com/api/users/preferences');
+      navigate('/preferences');
     } catch (err) {
       alert(err.response.data.message || 'Login failed');
     }
